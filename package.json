@@ -1,0 +1,41 @@
+{
+  "name": "poker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node bin/index.js",
+    "start:back": "node server/dev.js",
+    "start:all": "npm run start  | npm run start:back ",
+    "build": "node bin/build.js",
+    "serve": "node server",
+    "prod": "npm run build && npm run serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikeshukshin/EOSHack_092018_PokerFront.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikeshukshin/EOSHack_092018_PokerFront/issues"
+  },
+  "homepage": "https://github.com/mikeshukshin/EOSHack_092018_PokerFront#readme",
+  "dependencies": {
+    "autoprefixer": "^9.1.5",
+    "awesome-typescript-loader": "^5.2.1",
+    "case-sensitive-paths-webpack-plugin": "^2.1.2",
+    "css-loader": "^1.0.0",
+    "file-loader": "^2.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "less-loader": "^4.1.0",
+    "postcss-loader": "^3.0.0",
+    "react-dev-utils": "^5.0.2",
+    "style-loader": "^0.23.0",
+    "typescript": "^3.0.3",
+    "url-loader": "^1.1.1",
+    "webpack": "^4.19.1",
+    "webpack-dev-server": "^3.1.8"
+  }
+}
