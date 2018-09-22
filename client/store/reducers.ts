@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux';
 
-export const rootReducer = combineReducers({
+import state from './../reducer/state';
 
+export const rootReducer = combineReducers({
+  state
 });
