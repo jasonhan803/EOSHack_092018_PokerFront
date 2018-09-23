@@ -3,9 +3,10 @@ import styled from "react-emotion";
 
 export class Actions extends React.Component<any> {
   render() {
+    const { id } = this.props.params;
     return (
       <Header>
-        <Title>Hello hacker</Title>
+        <Title>Hello hacker in game: {id}</Title>
       </Header>
     );
   }

@@ -12,7 +12,7 @@ export const Routes = () => {
       <Common>
         <Route exact path="/" component={Main} />
         <Route path="/table" component={TableGames} />
-        <Route path="/game" component={GameMaster} />
+        <Route path="/game/:id" component={GameMaster} />
       </Common>
     </Switch>
   );

@@ -7,41 +7,36 @@ const { Column, ColumnGroup } = Table;
 const data = [
   {
     key: "1",
-    firstName: "John",
-    lastName: "Brown",
-    age: 32,
-    address: "New York No. 1 Lake Park",
-    tags: ["nice", "developer"]
+    id: 122,
+    players: 1,
+    stake: 10
   },
   {
     key: "2",
-    firstName: "Jim",
-    lastName: "Green",
-    age: 42,
-    address: "London No. 1 Lake Park",
-    tags: ["loser"]
+    id: 2342,
+    players: 1,
+    stake: 10
   },
   {
     key: "3",
-    firstName: "Joe",
-    lastName: "Black",
-    age: 32,
-    address: "Sidney No. 1 Lake Park",
-    tags: ["cool", "teacher"]
+    id: 242,
+    players: 2,
+    stake: 10
   }
 ];
 
 export class TableGames extends React.Component<any> {
   state = {
-    visible: false
+    visible: false,
+    currentId: null
   };
 
   handleJoin = (record, text) => {
-    this.setState({ visible: true });
+    this.setState({ visible: true, currentId: record.id });
   };
 
   handleSubmit = () => {
-    this.props.history.push("/game");
+    this.props.history.push(`/game/${this.state.currentId}`);
   };
 
   handleCancel = () => {};
@@ -55,34 +50,18 @@ export class TableGames extends React.Component<any> {
             visible={this.state.visible}
             onOk={this.handleSubmit}
             onCancel={this.handleCancel}
-          />
+          >
+            <p>
+              Open this game ID:
+              {this.state.currentId}?
+            </p>
+          </Modal>
           <Title>Table of available games</Title>
           <Wrap>
-            <Table dataSource={data}>
-              <ColumnGroup title="Name">
-                <Column
-                  title="First Name"
-                  dataIndex="firstName"
-                  key="firstName"
-                />
-                <Column title="Last Name" dataIndex="lastName" key="lastName" />
-              </ColumnGroup>
-              <Column title="Age" dataIndex="age" key="age" />
-              <Column title="Address" dataIndex="address" key="address" />
-              <Column
-                title="Tags"
-                dataIndex="tags"
-                key="tags"
-                render={tags => (
-                  <span>
-                    {tags.map(tag => (
-                      <Tag color="blue" key={tag}>
-                        {tag}
-                      </Tag>
-                    ))}
-                  </span>
-                )}
-              />
+            <Table dataSource={data} pagination={false}>
+              <Column title="Game ID" dataIndex="id" key="id" />
+              <Column title="# Players" dataIndex="players" key="players" />
+              <Column title="Stake" dataIndex="stake" key="stake" />
               <Column
                 title="Action"
                 key="action"
@@ -106,8 +85,8 @@ const Inner = styled("div")`
 `;
 
 const Cont = styled("div")`
-  width: 90%;
-  height: 90%;
+  width: 600px;
+  height: 400px;
 
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.8);
