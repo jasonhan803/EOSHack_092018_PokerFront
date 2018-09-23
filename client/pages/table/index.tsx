@@ -3,28 +3,7 @@ import styled from "react-emotion";
 import { Table, Modal, Spin } from "antd";
 const { Column, ColumnGroup } = Table;
 
-import { init } from "./../../bc/eos";
-
-const data = [
-  {
-    key: "1",
-    id: 122,
-    players: 1,
-    stake: 10
-  },
-  {
-    key: "2",
-    id: 2342,
-    players: 1,
-    stake: 10
-  },
-  {
-    key: "3",
-    id: 242,
-    players: 2,
-    stake: 10
-  }
-];
+import { init, search_game } from "./../../bc/eos";
 
 export class TableGames extends React.Component<any> {
   state = {
@@ -35,11 +14,15 @@ export class TableGames extends React.Component<any> {
   };
 
   componentDidMount() {
-    init();
-
-    setTimeout(() => {
-      this.setState({ data, loading: false });
-    }, 300);
+    init()
+      .then(() => {
+        return search_game();
+      })
+      .then(data => {
+        setTimeout(() => {
+          this.setState({ data, loading: false });
+        }, 300);
+      });
   }
 
   handleJoin = (record, text) => {
