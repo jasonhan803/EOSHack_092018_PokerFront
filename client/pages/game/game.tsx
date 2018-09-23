@@ -34,7 +34,7 @@ export class Game extends React.Component {
 
 const Cont = styled("div")`
   position: fixed;
-  top: calc(50% + 1.5rem);
+  top: calc(80% + 1.5rem);
   left: 50%;
 `;
 
