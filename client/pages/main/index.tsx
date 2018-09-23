@@ -6,17 +6,26 @@ import { Button } from "antd";
 export class Main extends React.Component {
   render() {
     return (
-      <Cont>
-        <Title>EOS Poker</Title>
-        <Wrap>
-          <Link to={"/table"}>
-            <Button type="primary">Find table</Button>
-          </Link>
-        </Wrap>
-      </Cont>
+      <Inner>
+        <Cont>
+          <Title>EOS Poker</Title>
+          <Wrap>
+            <Link to={"/table"}>
+              <Button type="primary">Find table</Button>
+            </Link>
+          </Wrap>
+        </Cont>
+      </Inner>
     );
   }
 }
+
+const Inner = styled("div")`
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 const Cont = styled("div")`
   width: 400px;

@@ -28,9 +28,15 @@ injectGlobal`
     margin: 0;
     padding: 0;
     height: 100%;
+    font-size: 18px;
   }
 
   #root {
     height: 100%;
+  }
+
+  .deck {
+    height: 100%;
+    font-size: 1.5rem;
   }
 `;

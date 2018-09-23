@@ -9,6 +9,5 @@ const Container = styled("div")`
   height: 100%;
   background: #45a173;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
 `;

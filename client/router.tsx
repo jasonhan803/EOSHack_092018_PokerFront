@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import { Common } from "./layout/Common";
 import { Main } from "./pages/main";
 import { TableGames } from "./pages/table";
-import { Game } from "./pages/game";
+import { GameMaster } from "./pages/game";
 
 export const Routes = () => {
   return (
@@ -12,7 +12,7 @@ export const Routes = () => {
       <Common>
         <Route exact path="/" component={Main} />
         <Route path="/table" component={TableGames} />
-        <Route path="/game" component={Game} />
+        <Route path="/game" component={GameMaster} />
       </Common>
     </Switch>
   );
