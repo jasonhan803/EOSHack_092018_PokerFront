@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled from "react-emotion";
+import { Link } from "react-router-dom";
 import { Button } from "antd";
 
 export class Main extends React.Component {
@@ -8,7 +9,9 @@ export class Main extends React.Component {
       <Cont>
         <Title>EOS Poker</Title>
         <Wrap>
-          <Button type="primary">Find table</Button>
+          <Link to={"/table"}>
+            <Button type="primary">Find table</Button>
+          </Link>
         </Wrap>
       </Cont>
     );

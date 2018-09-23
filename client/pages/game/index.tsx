@@ -2,13 +2,11 @@ import * as React from "react";
 import { findDOMNode } from "react-dom";
 import styled from "react-emotion";
 
-import * as Deck from "deck-of-cards";
-
-console.log(Deck);
-
 declare var Deck: any;
 
 export class Game extends React.Component {
+  public deck;
+
   componentDidMount() {
     this.initGame();
   }
@@ -16,11 +14,10 @@ export class Game extends React.Component {
   initGame() {
     const el = findDOMNode(this);
 
-    console.log(el);
-    const deck = Deck();
-    deck.mount(el);
+    this.deck = Deck();
+    this.deck.mount(el);
 
-    deck.cards.forEach(function(card, i) {
+    this.deck.cards.forEach(function(card, i) {
       card.setSide("front");
 
       // explode
