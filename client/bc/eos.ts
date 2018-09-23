@@ -41,3 +41,145 @@ export const init = () => {
     })
   });
 }
+
+export const search_game = () => {
+  eos.transaction({
+    actions: [
+      {
+        account: 'notechainacc',
+        name: 'search_game',
+        authorization: [{
+          actor: currentAccount.name,
+          permission: currentAccount.authority
+        }],
+        data: {}
+      }
+    ]
+  })
+}
+
+export const start_game = (id) => {
+  eos.transaction({
+    actions: [
+      {
+        account: 'notechainacc',
+        name: 'start_game',
+        authorization: [{
+          actor: currentAccount.name,
+          permission: currentAccount.authority
+        }],
+        data: {
+          id
+        }
+      }
+    ]
+  })
+}
+
+export const deck_shuffled = (id, cards) => {
+  eos.transaction({
+    actions: [
+      {
+        account: 'notechainacc',
+        name: 'deck_shuffled',
+        authorization: [{
+          actor: currentAccount.name,
+          permission: currentAccount.authority
+        }],
+        data: {
+          id, cards
+        }
+      }
+    ]
+  })
+}
+
+export const deck_recrypted = (id, cards) => {
+  eos.transaction({
+    actions: [
+      {
+        account: 'notechainacc',
+        name: 'deck_recrypted',
+        authorization: [{
+          actor: currentAccount.name,
+          permission: currentAccount.authority
+        }],
+        data: {
+          id, cards
+        }
+      }
+    ]
+  })
+}
+
+
+export const card_key = (id, num, key) => {
+  eos.transaction({
+    actions: [
+      {
+        account: 'notechainacc',
+        name: 'card_key',
+        authorization: [{
+          actor: currentAccount.name,
+          permission: currentAccount.authority
+        }],
+        data: {
+          id, num, key
+        }
+      }
+    ]
+  })
+}
+
+export const check = (id) => {
+  eos.transaction({
+    actions: [
+      {
+        account: 'notechainacc',
+        name: 'check',
+        authorization: [{
+          actor: currentAccount.name,
+          permission: currentAccount.authority
+        }],
+        data: {
+          id
+        }
+      }
+    ]
+  })
+}
+
+export const call = (id) => {
+  eos.transaction({
+    actions: [
+      {
+        account: 'notechainacc',
+        name: 'call',
+        authorization: [{
+          actor: currentAccount.name,
+          permission: currentAccount.authority
+        }],
+        data: {
+          id
+        }
+      }
+    ]
+  })
+}
+
+export const raise = (id, sum) => {
+  eos.transaction({
+    actions: [
+      {
+        account: 'notechainacc',
+        name: 'raise',
+        authorization: [{
+          actor: currentAccount.name,
+          permission: currentAccount.authority
+        }],
+        data: {id, sum}
+      }
+    ]
+  })
+}
+

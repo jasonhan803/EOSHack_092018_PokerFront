@@ -4,6 +4,15 @@ import styled from "react-emotion";
 import { Button } from "antd";
 
 import { Actions } from "./actions";
+import {
+  call,
+  card_key,
+  check,
+  deck_recrypted,
+  deck_shuffled,
+  raise,
+  start_game
+} from "./../../bc/eos";
 
 declare var Deck: any;
 
@@ -40,6 +49,8 @@ export class Game extends React.Component<any, any> {
   };
 
   componentDidMount() {
+    start_game(this.props.id);
+
     const el: any = findDOMNode(this);
     this.box = el.getBoundingClientRect();
 
@@ -249,6 +260,7 @@ export class Game extends React.Component<any, any> {
 
   handleRaise = () => {
     return new Promise(res => {
+      call(this.props.id);
       this.setState(
         state => ({
           ...state,
