@@ -3,6 +3,15 @@ import styled from "react-emotion";
 
 export class Actions extends React.Component<any> {
   render() {
+    const state = this.props.state;
+    if (state !== "start") {
+      return (
+        <Header>
+          <Title>Current state: {state}</Title>
+        </Header>
+      );
+    }
+
     const { id } = this.props.params;
     return (
       <Header>

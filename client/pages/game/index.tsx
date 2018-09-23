@@ -44,8 +44,8 @@ export class GameMaster extends React.Component<any> {
 
     return (
       <React.Fragment>
-        <Actions params={params} />
-        <Game data={this.state.data} box={this.state.box} />
+        {/* <Actions params={params} /> */}
+        <Game data={this.state.data} box={this.state.box} params={params} />
       </React.Fragment>
     );
   }

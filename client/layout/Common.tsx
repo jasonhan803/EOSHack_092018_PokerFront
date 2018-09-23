@@ -9,7 +9,8 @@ export const Common: React.SFC<any> = ({ children }) => (
 
 const Container = styled("div")`
   height: 100%;
-  background: url(${img});
+  /* background: url(${img}); */
+  background: #45a173;
   display: flex;
   flex-direction: column;
 `;
