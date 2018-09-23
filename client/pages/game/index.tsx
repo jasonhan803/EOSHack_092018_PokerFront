@@ -1,4 +1,5 @@
 import * as React from "react";
+import { findDOMNode } from "react-dom";
 import styled from "react-emotion";
 import { Spin } from "antd";
 
@@ -10,13 +11,20 @@ declare var Deck: any;
 export class GameMaster extends React.Component<any> {
   state = {
     loading: true,
-    data: null
+    data: null,
+    box: null
   };
 
   componentDidMount() {
     setTimeout(() => {
-      this.setState({ data: { some: "data" }, loading: false });
-    }, 500);
+      const el: any = findDOMNode(this);
+
+      this.setState({
+        data: { some: "data" },
+        box: el.getBoundingClientRect(),
+        loading: false
+      });
+    }, 0);
   }
 
   render() {
@@ -37,7 +45,7 @@ export class GameMaster extends React.Component<any> {
     return (
       <React.Fragment>
         <Actions params={params} />
-        <Game />
+        <Game data={this.state.data} box={this.state.box} />
       </React.Fragment>
     );
   }
