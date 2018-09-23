@@ -35,6 +35,7 @@
     "css-loader": "^1.0.0",
     "deck-of-cards": "^0.1.8",
     "emotion": "^9.2.10",
+    "eosjs": "^16.0.8",
     "file-loader": "^2.0.0",
     "history": "^4.7.2",
     "html-webpack-plugin": "^3.2.0",

@@ -3,6 +3,8 @@ import styled from "react-emotion";
 import { Table, Modal, Spin } from "antd";
 const { Column, ColumnGroup } = Table;
 
+import { init } from "./../../bc/eos";
+
 const data = [
   {
     key: "1",
@@ -33,6 +35,8 @@ export class TableGames extends React.Component<any> {
   };
 
   componentDidMount() {
+    init();
+
     setTimeout(() => {
       this.setState({ data, loading: false });
     }, 300);
@@ -41,11 +45,11 @@ export class TableGames extends React.Component<any> {
   handleJoin = (record, text) => {
     this.setState({ visible: true, currentId: record.id });
   };
-  
+
   handleSubmit = () => {
     this.props.history.push(`/game/${this.state.currentId}`);
   };
-  
+
   handleCancel = () => {
     this.setState({ visible: false, currentId: null });
   };
