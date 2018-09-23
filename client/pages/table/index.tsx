@@ -1,7 +1,6 @@
 import * as React from "react";
 import styled from "react-emotion";
-import { push } from "connected-react-router";
-import { Table, Divider, Tag, Modal } from "antd";
+import { Table, Modal, Spin } from "antd";
 const { Column, ColumnGroup } = Table;
 
 const data = [
@@ -27,21 +26,43 @@ const data = [
 
 export class TableGames extends React.Component<any> {
   state = {
+    loading: true,
     visible: false,
-    currentId: null
+    currentId: null,
+    data: null
   };
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ data, loading: false });
+    }, 300);
+  }
 
   handleJoin = (record, text) => {
     this.setState({ visible: true, currentId: record.id });
   };
-
+  
   handleSubmit = () => {
     this.props.history.push(`/game/${this.state.currentId}`);
   };
-
-  handleCancel = () => {};
+  
+  handleCancel = () => {
+    this.setState({ visible: false, currentId: null });
+  };
 
   render() {
+    if (this.state.loading) {
+      return (
+        <Inner>
+          <Cont>
+            <Inner>
+              <Spin size="large" />
+            </Inner>
+          </Cont>
+        </Inner>
+      );
+    }
+
     return (
       <Inner>
         <Cont>
@@ -58,7 +79,7 @@ export class TableGames extends React.Component<any> {
           </Modal>
           <Title>Table of available games</Title>
           <Wrap>
-            <Table dataSource={data} pagination={false}>
+            <Table dataSource={this.state.data} pagination={false}>
               <Column title="Game ID" dataIndex="id" key="id" />
               <Column title="# Players" dataIndex="players" key="players" />
               <Column title="Stake" dataIndex="stake" key="stake" />
